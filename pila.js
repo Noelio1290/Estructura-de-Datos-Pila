@@ -1,16 +1,16 @@
 class Stack {
     constructor(){
         this.stack = {}
-        this.count = ""
+        this.count = 1
     };
     agregarCarros(nombre){
-        this.stack[this.count] = new Auto(nombre)
-        this.count += this.stack[this.count]
+        this.stack[this.count] = nombre
+        this.count++
     };
     sacarUltimoCarro(){
+        this.count--
         let elemento = this.stack[this.count]
         delete this.stack[this.count]
-        this.count -= this.stack[this.count]
         return elemento
     };
 
@@ -30,11 +30,15 @@ class Auto{
 };
 
 const estacionamiento = new Stack()
-//console.log(estacionamiento.contenido())
-console.log(estacionamiento.agregarCarros("Chevy"))
-console.log(estacionamiento.agregarCarros("Mustang"))
-console.log(estacionamiento.agregarCarros("Tsuru"))
-console.log(estacionamiento.agregarCarros("Ferrari"))
 estacionamiento.contenido()
+estacionamiento.agregarCarros("Chevy")
+estacionamiento.agregarCarros("Mustang")
+estacionamiento.agregarCarros("Tsuru")
+estacionamiento.agregarCarros("Ferrari")
+estacionamiento.contenido()
+console.log(estacionamiento.sacarUltimoCarro())
+estacionamiento.contenido()
+console.log(estacionamiento.sacarUltimoCarro())
+console.log(estacionamiento.sacarUltimoCarro())
 console.log(estacionamiento.sacarUltimoCarro())
 estacionamiento.contenido()
