@@ -24,11 +24,18 @@ class Pila{
     };
 
     removeCar(){
-        if(!this.tail){
+        if(!this.head){
             return null
-
-            const valorRetorno = this.tail.marca
+        };
+        
+        const valorRetorno = this.head.marca;
+        
+        if(!this.head.prev){
+            this.head = null
+        } else {
+            this.head = this.head.prev
         }
+        return valorRetorno
     }
 }
 
@@ -38,4 +45,7 @@ estacionamiento.addCar(new Auto({marca:"Chevy"}))
 estacionamiento.addCar(new Auto({marca:"Bocho"}))
 estacionamiento.addCar(new Auto({marca:"Cheyenne"}))
 console.log(estacionamiento)
-console.log(estacionamiento.head.prev)
+estacionamiento.removeCar()
+estacionamiento.removeCar()
+console.log(estacionamiento)
+
